@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Getter and Setter</title>
+</head>
+<body>
+    
+    <div>
+        <h1>jQuery Getter</h1>
+        <h2 title="heading" id="h2Id">Heading 2</h2>
+        <input type="text" id="userName">
+        <button id="button1">Enter</button>
+        <select name="" id="grade">
+            <option value="empty">Choose</option>
+            <option value="valA">A</option>
+            <option value="valB">B</option>
+            <option value="valC">C</option>
+        </select>
+    </div>
+    <div>
+        <h1>jQuery Setter</h1>
+        <h3 title="Heading">Heading 3</h3>
+        <h4>Heading 4</h4>
+        <input type="text" id="userName1" value="Cho">
+        <button id="button2">Enter</button>
+    </div>
+   
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready(()=> {
+        //Getter
+       console.log("h2  => "+ $("h2").text()); //text getter
+       console.log("h2  => "+ $("h2").html()); //html getter
+       $("#button1").click(function(){
+        console.log("Input data => "+ $("#userName").val()); // val getter
+       });
+       $("#grade").change(function(){
+        console.log("jQuery Selected data => "+ $("#grade").val());
+       });
+       console.log("Attribute value => " + $("h2").attr("title")); //attr getter
+
+       //Setter
+       
+       $("h3").text("Updated Heading 3"); // text setter
+       $("h4").html("Updated Heading 4"); //html setter
+       $("#button2").click(function(){
+            $("#userName1").val("Updated Cho"); //val setter
+        }); // val setter
+        $("#grade").val("valC"); //Choose valC (val setter)
+        $("h3").attr("title","Updated Title");
+        console.log("H3 attr title => "+$("h3").attr("title")); //attr setter
+        
+    });
+
+    //javascript
+    console.log("JavaScript innerHTML Getter Test => " + document.getElementById("h2Id").innerHTML);
+    console.log("JavaScript value Getter Test => " + document.getElementById("userName1").value);
+
+    let grade = document.getElementById("grade");
+    grade.addEventListener("change",function(){
+        console.log("JavaScript value Getter Test => " + grade.value);
+    });
+    
+</script>
+</html>

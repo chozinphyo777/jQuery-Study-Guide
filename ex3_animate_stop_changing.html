@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate, Stop and Changing</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 0, 0, 0.749);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 15px solid rgb(230, 192, 0);
+            margin-top: 30px;
+            position: absolute; // VIP
+        }
+        .container{
+            margin: 30px;
+        }
+        h2{
+            display: none;
+            text-align: center;
+            color: red;
+        }
+        span{
+            display: block;
+            margin-top: 20px;
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: rebeccapurple;">Animate, Stop and Changing</h1>
+        <button id="startBtn">Start Animation</button>
+        <button id="stopBtn">Stop </button>
+        <button id="callBackBtn">Call Back Action </button>
+        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti quia repellat ab quidem molestiae eveniet quasi aspernatur minima nostrum cum voluptates molestias doloribus, est ipsam quisquam. Animi laudantium deleniti beatae!</span>
+   
+        
+        <div class="box">
+            Welcome!
+        </div>
+        <h2>Welcome to jQuery</h2>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam id vitae inventore repellat odit nesciunt rerum assumenda repudiandae possimus iusto distinctio nostrum consequatur dolore consequuntur, asperiores delectus quae eum nobis!</p>
+         </div>
+    
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready( function() {
+        $("p").hide();
+
+        //$(selector).animate({params},speed,callback);
+        $("#startBtn").click(function() {
+        $(".box").animate({ //$(selector).animate({params},
+            left: '300px',
+            top:'300px'
+
+        },3000) 
+        .animate({  //jQuery changing using '.'
+            left: '630px',
+            top:'300px'
+
+        },3000,  //speed
+        function(){  //callback function
+            $("h2").show(2000);
+            $("#para").slideDown(2000).css("color","green"); //jQuery changing using '.'
+        });
+     });
+
+        //$(selector).stop(stopAll,goToEnd);
+        $("#stopBtn").click(function(){
+            $(".box").stop();
+        });
+
+    //callback
+    $("#callBackBtn").click(function(){
+    $("span").hide("slow", function(){ //callback function
+      $(this).html("Hello jQuery");
+      $(this).show(2000);
+    });
+  });
+
+    });
+    
+</script>
+</html>

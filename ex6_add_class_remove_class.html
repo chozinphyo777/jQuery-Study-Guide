@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Class, remove Class and toggle Class</title>
+    <style>
+        .title{
+            color:blue;
+        }
+        .dark_color{
+            color:white;
+        }
+        .bg_color{
+            background-color: rgb(79, 169, 57);
+        }
+        .dark_bg_color{
+            background-color: black;
+        }
+        p{
+            padding: 20px;
+            box-shadow: 1px 1px 10px #1b58e559;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Add Class, remove Class and toggle Class</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, inventore quia a non, quos quae atque recusandae quaerat ad accusantium sint, corporis fugit deserunt est voluptatibus distinctio vel adipisci assumenda!
+    </p>
+    <button>Dark</button>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("p").addClass("bg_color");
+        $("h1").removeClass("title");
+        $("button").click(function(){
+            $(this).html() == "Dark" ? 
+            $(this).html("Light") : $(this).html("Dark");
+            $("body").toggleClass("dark_bg_color");
+                $("h1").toggleClass("title");
+                $("h1").toggleClass("dark_color");
+                $("p").toggleClass("dark_color");
+            });
+    });
+</script>
+</html>

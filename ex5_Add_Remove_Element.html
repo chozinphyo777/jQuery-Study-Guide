@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Add Element and Remove Element</title>
+    <style>
+        .container{
+            padding:20px
+        }
+        ul{
+            background-color: bisque;
+        }
+        h3{
+            color: blue;
+            margin: 30px;
+        }
+        .createBtn{
+            display:block;
+            margin: 20px 0px;
+        }
+        .addBtn{
+        }
+        .removeBtn{
+
+        }
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Add and Remove</h1>
+        <div>
+            <ul class="myCode">
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </div>
+        <div>
+            <ul class="myFruit">
+                <li>Apple</li>
+                <li>Orange</li>
+            </ul>
+            <ul class="myFood">
+                <li>Pizza</li>
+                <li>Noddle</li>
+            </ul>
+        
+        </div>
+        <!-- <div>
+            <h2>Create Grade</h2>
+            <form action="">
+                <div class="inputdiv">
+                    <label for="">Name</label>
+                    <input type="text">
+                    <button type="button" id="addBtn">+</button>
+                </div>
+                
+                <button type="button" class="createBtn">Create</button>
+            </form>
+        </div> -->
+    </div>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Add Element and Content
+        $(".myCode").prepend(` <li>Basic2</li>`) //Inserts content at the beginning of the selected elements
+        $(".myCode").prepend(` <li>Basic1</li>`)
+        $(".myCode").append(` <li>JavaScript</li>`) //append() - Inserts content at the end of the selected elements
+        $(".myCode").append(` <li>jQurey</li>`)
+        $(".myCode").before(`<h3> jQuery Add </h3>`); // Inserts content before the selected elements
+        $(".myCode").after(`<h3> jQuery Remove </h3>`); //Inserts content after the selected elements
+
+        //Remove Element and Content
+        $(".myFruit").remove(); //Removes the selected parent element and its child elements
+        $(".myFruit").append(`<li>Watermelon</li>`) // Cannot add Watermelon cause "remove" deleted parent element and its child.
+
+        $(".myFood").empty(); //Removes the child elements from the selected element 
+            $(".myFood").append(`<li>Tea</li>`) //still exist  <ul class="myFood"> we can add
+       
+
+    });
+</script>
+</html>

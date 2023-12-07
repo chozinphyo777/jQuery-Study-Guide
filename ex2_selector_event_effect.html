@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector, Event , Effect andSome build in method</title>
+    <style>
+        .container{
+            margin: 30px;
+        }
+        button{
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: 2px solid #006aff;
+        }
+        #heading1{
+            display: none;
+        }
+        #showHeading{
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: 2px solid hsl(213, 24%, 9%);
+            display: inline;
+        }
+        div{
+            margin-top: 50px;
+        }
+        a{
+            background-color: #e2b810;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+        }
+        img{
+            width: 25%;
+            padding-top: 20px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button>Click</button>
+        <h2 id="heading">Welcome to jQuery World</h2>
+        <p class="paragraph">Paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit iste voluptas quam, rem rerum sunt odit sapiente? Nesciunt adipisci, mollitia cupiditate velit illo minima id quae eos perferendis qui quasi?</p>
+       
+        <div style="margin-top: 50px;">
+            <div id="showHeading" >Show Heading with Slide</div>
+        <h4 id="heading1">Heading1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, id.</h4>
+
+        </div>
+        <div>
+            <a id="showBtn">Show</a>
+            <a id="hideBtn">Hide</a>
+            <a id="toggleBtn">Toggle</a>
+        </div>
+        <img id="image1" src="images/image1.jpeg" alt="">
+        
+        
+    </div>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".paragraph").hide();
+    //Selector Test
+    $("button").click(function(){ //The button element Selector (click event)
+        $("#heading").css("color","red"); //The #id Selector
+        $(".paragraph").toggle(1000); //The .class Selector
+    });
+    //Event Test
+    $("#showHeading").hover(function(){  //hover event
+        $("#heading1").slideDown("1000");
+    });
+
+    $("#showHeading").mouseleave(function(){  //mouseleave event
+        $("#heading1").hide("1000");
+    });
+
+    // Tesing
+    $("#image1").hide();
+    // $("#image1").css("display", "none");
+
+    $("#showBtn").click(function(){
+        $("#image1").show(1000);
+    });
+    $("#hideBtn").click(function(){
+        $("#image1").hide(1000);
+    });
+    $("#toggleBtn").click(function(){
+        $("#image1").fadeToggle(1000);
+    });
+
+
+});
+</script>
+</html>
